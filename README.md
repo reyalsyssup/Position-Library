@@ -14,9 +14,12 @@ int main() {
         newVector.y = myVector2.y + myOtherVector2.y;
     */
     plib::Vector2 newVector = myVector2 + myOtherVector2;
-    std::cout 
 }
 ```
+
+### Supported operators
+As of now, plib supports `+, -, +=, -=, ==, !=`. In the future, these will be added: `*=, /=, ++, --`.
+
 ## Example program
 ```c++
 #include <iostream>
@@ -24,8 +27,8 @@ int main() {
 #include "pos_utils.h"
 
 int main() {
-    plib::Vector2 point1(5, 5);
-    plib::Vector2 point2(10, 10);
+    plib::Vector2 point1(10, 10);
+    plib::Vector2 point2(5, 5);
     plib::Vector2 point3 = point1 + point2;
     plib::Vector2 point4 = point1 - point2;
     plib::Vector2 point5(2, 2);
@@ -47,8 +50,7 @@ int main() {
 
     if(point1 == point2) std::cout << "Point 1 is the same as point 2" << std::endl;
     if(point7 != point6 && point7 == point3) std::cout << "Point 7 is the same as point 3 but different to point 6" << std::endl;
+    std::cout << "Distance from point1 to point2: " << plib::Vector2::getLength(point1, point2) << std::endl;
+    std::cout << "Distance from point1 to point2 on the x axis: " << plib::Vector2::getXDist(point1, point2) << std::endl;
 }
 ```
-
-### Supported operators
-As of now, plib supports `+, -, +=, -=, ==, !=`. In the future, these will be added: `*=, /=, ++, --`.
