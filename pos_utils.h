@@ -4,6 +4,10 @@
 namespace plib {
     class Vector2 {
         public:
+            // static funcs
+            static double getLength(Vector2 point1, Vector2 point2);
+            static double getXDist(Vector2 point1, Vector2 point2);
+            // rest of the thing
             double x = 0;
             double y = 0;
             Vector2 operator + (Vector2 vector);
