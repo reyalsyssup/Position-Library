@@ -18,7 +18,7 @@ int main() {
 ```
 
 ### Supported operators
-As of now, plib supports `+, -, +=, -=, ==, !=`. In the future, these will be added: `*=, /=, ++, --`.
+As of now, plib supports `+, -, +=, -=, ==, !=` to modify vectors. In the future, these will be added: `*=, /=, ++, --`.
 
 ## Example program
 ```c++
