@@ -49,7 +49,7 @@ Vector2 Vector2::operator -= (Vector2 vector) {
     return newVector;
 }
 
-
+// Vector 3
 
 Vector3 Vector3::operator + (Vector3 vector) {
     Vector3 newVector(0, 0, 0);
