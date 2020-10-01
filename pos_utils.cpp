@@ -1,5 +1,6 @@
 #include "pos_utils.h"
 #include "math.h"
+#include <cmath>
 
 using namespace plib;
 
@@ -35,6 +36,49 @@ double Vector2::getLength(Vector2 point1, Vector2 point2) {
     run = run > 0 ? run *= -1 : run;
     rise = rise > 0 ? rise *= -1 : rise;
     return sqrt(run*run + rise*rise);
+}
+
+std::vector<Vector2> Vector2::getLinePoints(Vector2 point1, Vector2 point2) {
+    std::vector<Vector2> vectors;
+    int xDist = plib::Vector2::getXDist(point1, point2);
+    int yDist = plib::Vector2::getYDist(point1, point2);
+    int xPos = (int)std::round(point1.x);
+    int yPos = (int)std::round(point1.y);
+    // Bresenham's Line Alg
+    int yStep = 1;
+    if(point2.y < point1.y) yStep = -1;
+    int A, B, P;
+    if(yDist > xDist) {
+        A = 2*xDist;
+        B = A - 2*yDist;
+        P = A - yDist;
+    } else {
+        A = 2*yDist;
+        B = A - 2*xDist;
+        P = A - xDist;
+    }
+    
+    while(xPos < point2.x) {
+        // Check if we are not at the destination yet
+        if(P < 0) {
+            if(plib::Vector2::getYDist(point1, point2) > plib::Vector2::getXDist(point1, point2)) {
+                yPos+=yStep;
+            } else xPos++;
+            vectors.push_back(Vector2(xPos, yPos));
+            P+=A;
+        } else {
+            if(plib::Vector2::getYDist(point1, point2) > plib::Vector2::getXDist(point1, point2)) {
+                xPos++;
+                yPos+=yStep;
+            } else {
+                yPos += yStep;
+                xPos++;
+            }
+            vectors.push_back(Vector2(xPos, yPos));
+            P+=B;
+        }
+    }
+    return vectors;
 }
 
 // operators
