@@ -24,6 +24,7 @@ As of now, plib supports `+, -, +=, -=, ==, !=` to modify vectors. In the future
 ```c++
 #include <iostream>
 #include <string>
+#include <vector>
 #include "pos_utils.h"
 
 int main() {
@@ -52,5 +53,14 @@ int main() {
     if(point7 != point6 && point7 == point3) std::cout << "Point 7 is the same as point 3 but different to point 6" << std::endl;
     std::cout << "Distance from point1 to point2: " << plib::Vector2::getLength(point1, point2) << std::endl;
     std::cout << "Distance from point1 to point2 on the x axis: " << plib::Vector2::getXDist(point1, point2) << std::endl;
+    std::cout << "Distance from point1 to point2 on the y axis: " << plib::Vector2::getYDist(point1, point2) << std::endl;
+
+    std::cout << "To draw a line 1 pixel wide from point 5 to point 7,\nyou would need to fill in these points: " << std::endl;
+    
+    std::vector<plib::Vector2> vectors;
+    vectors = plib::Vector2::getLinePoints(point5, point7);
+    for(plib::Vector2 vector : vectors) {
+        std::cout << "(" << vector.x << ", " << vector.y << ")" << std::endl;
+    }
 }
 ```
