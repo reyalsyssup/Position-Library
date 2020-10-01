@@ -23,6 +23,11 @@ double Vector2::getXDist(Vector2 point1, Vector2 point2) {
     return dist < 0 ? dist *= -1 : dist;
 }
 
+double Vector2::getYDist(Vector2 point1, Vector2 point2) {
+    double dist = point1.y - point2.y;
+    return dist < 0 ? dist *= -1 : dist;
+}
+
 double Vector2::getLength(Vector2 point1, Vector2 point2) {
     double length = 0.0;
     double run = point1.x - point2.x;
