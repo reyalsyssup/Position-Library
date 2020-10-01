@@ -19,6 +19,8 @@ namespace plib {
             bool operator != (Vector2 vector);
             Vector2 operator += (Vector2 vector);
             Vector2 operator -= (Vector2 vector);
+            Vector2 operator *= (Vector2 vector);
+            Vector2 operator /= (Vector2 vector);
             Vector2(double x, double y);
     };
     class Vector3 {
@@ -32,6 +34,8 @@ namespace plib {
             bool operator != (Vector3 vector);
             Vector3 operator += (Vector3 vector);
             Vector3 operator -= (Vector3 vector);
+            Vector3 operator *= (Vector3 vector);
+            Vector3 operator /= (Vector3 vector);
             Vector3(double x, double y, double z);
     };
 };

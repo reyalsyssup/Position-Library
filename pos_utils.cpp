@@ -115,6 +115,18 @@ Vector2 Vector2::operator -= (Vector2 vector) {
     newVector.y = y -= vector.y;
     return newVector;
 }
+Vector2 Vector2::operator *= (Vector2 vector) {
+    Vector2 newVector(0, 0);
+    newVector.x += x * vector.x;
+    newVector.y += y * vector.y;
+    return newVector;
+}
+Vector2 Vector2::operator /= (Vector2 vector) {
+    Vector2 newVector(0, 0);
+    newVector.x += x / vector.x;
+    newVector.y += y / vector.y;
+    return newVector;
+}
 
 // Vector 3
 
@@ -153,4 +165,16 @@ Vector3 Vector3::operator -= (Vector3 vector) {
     newVector.y = y -= vector.y;
     newVector.z = z -= vector.z;
     return newVector;
+}
+Vector3 Vector3::operator *= (Vector3 vector) {
+    Vector3 newVector(0, 0, 0);
+    newVector.x = x *= vector.x;
+    newVector.y = y *= vector.y;
+    newVector.z = z *= vector.z;
+}
+Vector3 Vector3::operator /= (Vector3 vector) {
+    Vector3 newVector(0, 0, 0);
+    newVector.x = x /= vector.x;
+    newVector.y = y /= vector.y;
+    newVector.z = z /= vector.z;
 }
